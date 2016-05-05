@@ -15,8 +15,8 @@ class Table {
   }
   
   [boolean]checkLocation([int]$x, [int]$y) {
-    return (0 -le $x -and $x -lt $this.maxX) `
-      -and (0 -le $y -and $y -lt $this.maxY)
+    return (0 -le $x -and $x -le $this.maxX) `
+      -and (0 -le $y -and $y -le $this.maxY)
   }
   
   [int]width() {
