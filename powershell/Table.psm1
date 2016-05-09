@@ -1,3 +1,5 @@
+Import-Module ".\TableLocation.psm1"
+
 class Table {
   # Property: Max width starting at 0
   [int]$maxX
@@ -10,13 +12,17 @@ class Table {
   }
 
   Table([int]$width, [int]$height) {
-    $this.maxX = $width-1
-    $this.maxY = $height-1
+    $this.maxX = $width - 1
+    $this.maxY = $height - 1
   }
   
   [boolean]checkCoordinates([int]$x, [int]$y) {
     return (0 -le $x -and $x -le $this.maxX) `
       -and (0 -le $y -and $y -le $this.maxY)
+  }
+  
+  [boolean]checkTableLocation($location) {
+    return $this.checkCoordinates($location.coordinates[0], $location.coordinates[1])
   }
   
   [int]width() {
@@ -27,7 +33,6 @@ class Table {
     return $this.maxY + 1
   }
 }
-
 
 function Get-Table() {
   return [Table]::new()

@@ -7,10 +7,12 @@ class TableLocation {
   [int]$Y
   [boolean]$valid
   [string]$status
+  [array]$coordinates
   
   TableLocation([int]$X, [int]$Y) {
     $this.X = $X
     $this.Y = $Y
+    $this.coordinates = ($X, $Y)
     $this.valid = $true
   }
   

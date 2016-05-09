@@ -17,5 +17,10 @@ Describe "TableLocation class" {
       $l.valid | should be $false
       $l.status | should be "This is an invalid location"
     }
+    
+    It "Returns coordinates when it has them" {
+      $l = [TableLocation]::new(4, 5)
+      $l.coordinates | should be (4, 5)
+    }
   }
 }

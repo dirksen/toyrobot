@@ -22,33 +22,33 @@ Describe "Table class" {
       $t.height() | should be 4
     }
     
-    Context "::checkCoordinates" {
+    Context "::checkTableLocation" {
       BeforeEach {
         $t = [Table]::new()
       }
       It 'returns false for negative width' {
-        $t.checkCoordinates(-1, 2) | should be $false
+        $t.checkTableLocation($(Get-TableLocation -X -1 -Y 2)) | should be $false
       }
       It 'returns false for negative height' {
-        $t.checkCoordinates(3, -5) | should be $false
+        $t.checkTableLocation($(Get-TableLocation -X 3 -Y -5)) | should be $false
       }
       It 'returns true for 0, 0' {
-        $t.checkCoordinates(0, 0) | should be $true
+        $t.checkTableLocation($(Get-TableLocation -X 0 -Y 0)) | should be $true
       }
       It 'returns true for max width' {
-        $t.checkCoordinates(4, 2) | should be $true
+        $t.checkTableLocation($(Get-TableLocation -X 4 -Y 2)) | should be $true
       }
       It 'returns true for max height' {
-        $t.checkCoordinates(3, 4) | should be $true
+        $t.checkTableLocation($(Get-TableLocation -X 3 -Y 4)) | should be $true
       }
       It 'returns false for over max width' {
-        $t.checkCoordinates(5, 2) | should be $false
+        $t.checkTableLocation($(Get-TableLocation -X 5 -Y 2)) | should be $false
       }
       It 'returns false for over max height' {
-        $t.checkCoordinates(3, 8) | should be $false
+        $t.checkTableLocation($(Get-TableLocation -X 3 -Y 8)) | should be $false
       }
       It 'returns true for max width and height together' {
-        $t.checkCoordinates(4, 4) | should be $true
+        $t.checkTableLocation($(Get-TableLocation -X 4 -Y 4)) | should be $true
       }
     }
   }
