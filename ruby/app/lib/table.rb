@@ -1,18 +1,18 @@
 class Table
-  def initialize(width=5, height=5) do
+  def initialize(width=5, height=5)
     @maxX = width - 1
     @maxY = height - 1
   end
   
-  def get_width
+  def width
     @maxX + 1
   end
   
-  def get_height
+  def height
     @maxY + 1
   end
   
-  def checkCoords(x, y) do
+  def checkCoords(x, y)
     x.between?(0, @maxX) && y.between?(0, @maxY)
   end
 end
