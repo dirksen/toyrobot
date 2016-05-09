@@ -1,19 +1,19 @@
-if (Get-Module -Name Location) {
-  Remove-Module Location
+if (Get-Module -Name TableLocation) {
+  Remove-Module TableLocation
 }
-Import-Module $PSScriptRoot\..\Location.psm1
+Import-Module $PSScriptRoot\..\TableLocation.psm1
 
-Describe "Location class" {
-  InModuleScope Location {
+Describe "TableLocation class" {
+  InModuleScope TableLocation {
     It "Instantiates with X and Y location" {
-      $l = [Location]::new(4, 5)
+      $l = [TableLocation]::new(4, 5)
       $l.X | should be 4
       $l.Y | should be 5
       $l.valid | should be $true
     }
     
     It "Instantiates with an error message" {
-      $l = [Location]::new("This is an invalid location")
+      $l = [TableLocation]::new("This is an invalid location")
       $l.valid | should be $false
       $l.status | should be "This is an invalid location"
     }

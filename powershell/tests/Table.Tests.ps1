@@ -2,6 +2,7 @@ if (Get-Module -Name Table) {
   Remove-Module Table
 }
 Import-Module $PSScriptRoot\..\Table.psm1
+Import-Module $PSScriptRoot\..\TableLocation.psm1
 
 Describe "Table class" {
   InModuleScope Table {
@@ -21,33 +22,33 @@ Describe "Table class" {
       $t.height() | should be 4
     }
     
-    Context "::checkLocation" {
+    Context "::checkCoordinates" {
       BeforeEach {
         $t = [Table]::new()
       }
       It 'returns false for negative width' {
-        $t.checkLocation(-1, 2) | should be $false
+        $t.checkCoordinates(-1, 2) | should be $false
       }
       It 'returns false for negative height' {
-        $t.checkLocation(3, -5) | should be $false
+        $t.checkCoordinates(3, -5) | should be $false
       }
       It 'returns true for 0, 0' {
-        $t.checkLocation(0, 0) | should be $true
+        $t.checkCoordinates(0, 0) | should be $true
       }
       It 'returns true for max width' {
-        $t.checkLocation(4, 2) | should be $true
+        $t.checkCoordinates(4, 2) | should be $true
       }
       It 'returns true for max height' {
-        $t.checkLocation(3, 4) | should be $true
+        $t.checkCoordinates(3, 4) | should be $true
       }
       It 'returns false for over max width' {
-        $t.checkLocation(5, 2) | should be $false
+        $t.checkCoordinates(5, 2) | should be $false
       }
       It 'returns false for over max height' {
-        $t.checkLocation(3, 8) | should be $false
+        $t.checkCoordinates(3, 8) | should be $false
       }
       It 'returns true for max width and height together' {
-        $t.checkLocation(4, 4) | should be $true
+        $t.checkCoordinates(4, 4) | should be $true
       }
     }
   }

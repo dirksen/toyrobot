@@ -14,7 +14,7 @@ class Table {
     $this.maxY = $height-1
   }
   
-  [boolean]checkLocation([int]$x, [int]$y) {
+  [boolean]checkCoordinates([int]$x, [int]$y) {
     return (0 -le $x -and $x -le $this.maxX) `
       -and (0 -le $y -and $y -le $this.maxY)
   }
@@ -27,3 +27,15 @@ class Table {
     return $this.maxY + 1
   }
 }
+
+
+function Get-Table() {
+  return [Table]::new()
+}
+
+function Get-Table([int]$width, [int]$height) {
+  return [Table]::new($width, $height)
+}
+
+
+Export-ModuleMember -Function Get-Table
