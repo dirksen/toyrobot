@@ -6,10 +6,6 @@ Import-Module $PSScriptRoot\..\TableLocation.psm1
 
 Describe "Table class" {
   InModuleScope Table {
-    It 'instantiates with no args' {
-      [Table]::new()
-    }
-    
     It 'defaults to width 5, height 5' {
       $t = [Table]::new()
       $t.width() | should be 5

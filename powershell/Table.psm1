@@ -1,8 +1,8 @@
 class Table {
   # Property: Max width starting at 0
-  [int]$maxX
+  hidden [int]$maxX
   # Property: Max height starting at 0
-  [int]$maxY
+  hidden [int]$maxY
   
   Table() {
     $this.maxX = 4
@@ -22,7 +22,7 @@ class Table {
     return $this.maxY + 1
   }
   
-  [boolean]checkCoordinates([int]$x, [int]$y) {
+  hidden [boolean]checkCoordinates([int]$x, [int]$y) {
     return (0 -le $x -and $x -le $this.maxX) `
       -and (0 -le $y -and $y -le $this.maxY)
   }
