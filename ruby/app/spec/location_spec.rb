@@ -11,9 +11,12 @@ describe Location do
       expect(l.y).to eq 4
       expect(l.facing).to eq :NORTH
     end
-    
     it 'should give an invalid location for coords outside the table' do
       l = Location.new(table, -1, 10, :NORTH)
+      expect(l.valid).to eq false
+    end
+    it 'should give an invalid location for invalid facing' do
+      l = Location.new(table, -1, 10, 'furball')
       expect(l.valid).to eq false
     end
   end
