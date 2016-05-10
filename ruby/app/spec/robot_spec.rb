@@ -19,9 +19,13 @@ describe Robot do
       expect(robot.place(['5'])).to eq robot.location
     end
     it 'returns the current location if the location would be invalid' do
-      expect(robot.place(['-1',]))
+      expect(robot.place(['-1',])).to eq robot.location
     end
     it 'returns a new location if it is valid' do
+      location = robot.place(['2', '3', 'SOUTH'])
+      expect(location.x).to eq 2
+      expect(location.y).to eq 3
+      expect(location.facing).to eq :SOUTH
     end
   end
 end

@@ -10,7 +10,7 @@ class Location
   def initialize(table, x, y, facing)
     @table = table
     @valid = false
-    f_sym = facing.to_sym
+    f_sym = facing.upcase.to_sym
     if Facings.include?(f_sym)
       x_i = x.to_i
       y_i = y.to_i
