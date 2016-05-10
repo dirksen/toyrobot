@@ -5,6 +5,7 @@ class Location
   attr_reader :y
   attr_reader :facing
   attr_reader :table
+  attr_reader :valid
   
   def initialize(table, x, y, facing)
     @table = table
@@ -17,10 +18,6 @@ class Location
         @valid = true
       end
     end
-  end
-  
-  def valid
-    return @valid
   end
 
   def move
