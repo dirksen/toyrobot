@@ -11,3 +11,4 @@ input = CommandLine.new()
 
 while true do
   robot = robot.process(input.get_command)
+end

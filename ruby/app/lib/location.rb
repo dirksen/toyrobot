@@ -10,14 +10,21 @@ class Location
   def initialize(table, x, y, facing)
     @table = table
     @valid = false
-    if Facings.include?(facing)
-      if table.checkCoords(x, y)
-        @x = x
-        @y = y
-        @facing = facing
+    f_sym = facing.to_sym
+    if Facings.include?(f_sym)
+      x_i = x.to_i
+      y_i = y.to_i
+      if table.checkCoords(x_i, y_i)
+        @x = x_i
+        @y = y_i
+        @facing = f_sym
         @valid = true
       end
     end
+  end
+  
+  def to_s
+    @valid ? "(#{@x},#{@y}) facing #{@facing}" : "Not yet placed"
   end
 
   def move
