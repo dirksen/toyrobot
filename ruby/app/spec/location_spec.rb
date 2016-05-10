@@ -18,13 +18,34 @@ describe Location do
     end
   end
   context '#move' do
+    let(:loc) {  }
     it 'should move north within the table' do
+      l = Location.new(table, 2, 2, :NORTH)
+      ll = l.move
+      expect(ll.x).to eq 2
+      expect(ll.y).to eq 3
+      expect(ll.facing).to eq :NORTH
     end
     it 'should move west within the table' do
+      l = Location.new(table, 2, 2, :WEST)
+      ll = l.move
+      expect(ll.x).to eq 1
+      expect(ll.y).to eq 2
+      expect(ll.facing).to eq :WEST
     end
     it 'should move south within the table' do
+      l = Location.new(table, 2, 2, :SOUTH)
+      ll = l.move
+      expect(ll.x).to eq 2
+      expect(ll.y).to eq 1
+      expect(ll.facing).to eq :SOUTH
     end
     it 'should move east within the table' do
+      l = Location.new(table, 2, 2, :EAST)
+      ll = l.move
+      expect(ll.x).to eq 3
+      expect(ll.y).to eq 2
+      expect(ll.facing).to eq :EAST
     end
   end
 end
