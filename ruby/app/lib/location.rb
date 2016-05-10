@@ -1,4 +1,4 @@
-Facings = %w{NORTH WEST SOUTH EAST}
+Facings = %i{NORTH WEST SOUTH EAST}
 
 class Location
   attr_reader :x
