@@ -80,6 +80,10 @@ describe Location do
     it 'should turn left from EAST to NORTH' do
       expect((Location.new(table, 2, 2, :EAST).left).facing).to eq :NORTH
     end
+    it 'should return the same location if not yet placed' do
+      l = Location.new(table, -1, -1, :NORTH)
+      expect(l.left).to eq l
+    end
   end
   context '#right' do
     it 'should turn right from NORTH to EAST' do
@@ -93,6 +97,10 @@ describe Location do
     end
     it 'should turn right from EAST to SOUTH' do
       expect((Location.new(table, 2, 2, :EAST).right).facing).to eq :SOUTH
+    end
+    it 'should return the same location if not yet placed' do
+      l = Location.new(table, -1, -1, :NORTH)
+      expect(l.right).to eq l
     end
   end
 end
