@@ -5,7 +5,7 @@ require './lib/commandline'
 # Create a table
 table = Table.new()
 # Create a robot
-robot = Robot.new()
+robot = Robot.new(table)
 # Create an input processor
 input = CommandLine.new()
 
