@@ -32,13 +32,5 @@ describe Table do
         expect(table.checkCoords(5, 5)).to eq false
       end
     end
-    context '#place' do
-      it 'returns an invalid location outside the bounds' do
-        expect(table.place(8, 10, :NORTH).valid).to eq false
-      end
-      it 'returns a valid location inside the bounds' do
-        expect(table.place(3, 4, :NORTH).valid).to eq true
-      end
-    end
   end
 end

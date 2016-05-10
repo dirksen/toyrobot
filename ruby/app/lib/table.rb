@@ -15,8 +15,4 @@ class Table
   def checkCoords(x, y)
     x.between?(0, @maxX) && y.between?(0, @maxY)
   end
-  
-  def place(x, y, f)
-    return Location.new(self, x, y, f)
-  end
 end
