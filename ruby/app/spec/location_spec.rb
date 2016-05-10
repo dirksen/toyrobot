@@ -25,6 +25,7 @@ describe Location do
       expect(ll.x).to eq 2
       expect(ll.y).to eq 3
       expect(ll.facing).to eq :NORTH
+      expect(ll.valid).to eq true
     end
     it 'should move west within the table' do
       l = Location.new(table, 2, 2, :WEST)
@@ -32,6 +33,7 @@ describe Location do
       expect(ll.x).to eq 1
       expect(ll.y).to eq 2
       expect(ll.facing).to eq :WEST
+      expect(ll.valid).to eq true
     end
     it 'should move south within the table' do
       l = Location.new(table, 2, 2, :SOUTH)
@@ -39,6 +41,7 @@ describe Location do
       expect(ll.x).to eq 2
       expect(ll.y).to eq 1
       expect(ll.facing).to eq :SOUTH
+      expect(ll.valid).to eq true
     end
     it 'should move east within the table' do
       l = Location.new(table, 2, 2, :EAST)
@@ -46,6 +49,27 @@ describe Location do
       expect(ll.x).to eq 3
       expect(ll.y).to eq 2
       expect(ll.facing).to eq :EAST
+      expect(ll.valid).to eq true
+    end
+    it 'should be invalid if moving off the table north' do
+      l = Location.new(table, 2, 4, :NORTH)
+      ll = l.move
+      expect(ll.valid).to eq false
+    end
+    it 'should be invalid if moving off the table west' do
+      l = Location.new(table, 0, 2, :WEST)
+      ll = l.move
+      expect(ll.valid).to eq false
+    end
+    it 'should be invalid if moving off the table south' do
+      l = Location.new(table, 2, 0, :SOUTH)
+      ll = l.move
+      expect(ll.valid).to eq false
+    end
+    it 'should be invalid if moving off the table east' do
+      l = Location.new(table, 4, 2, :EAST)
+      ll = l.move
+      expect(ll.valid).to eq false
     end
   end
 end

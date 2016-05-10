@@ -24,15 +24,16 @@ class Location
   end
 
   def move
-    case @facing
+    newLocation = case @facing
     when :NORTH
-      return Location.new(@table, @x, @y+1, @facing)
+      Location.new(@table, @x, @y+1, @facing)
     when :WEST
-      return Location.new(@table, @x-1, @y, @facing)
+      Location.new(@table, @x-1, @y, @facing)
     when :SOUTH
-      return Location.new(@table, @x, @y-1, @facing)
+      Location.new(@table, @x, @y-1, @facing)
     when :EAST
-      return Location.new(@table, @x+1, @y, @facing)
+      Location.new(@table, @x+1, @y, @facing)
     end
+    return newLocation
   end
 end
