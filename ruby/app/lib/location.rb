@@ -24,6 +24,7 @@ class Location
   end
 
   def move
+    return self unless @valid
     newLocation = case @facing
     when :NORTH
       Location.new(@table, @x, @y+1, @facing)
@@ -34,6 +35,6 @@ class Location
     when :EAST
       Location.new(@table, @x+1, @y, @facing)
     end
-    return newLocation
+    if newLocation.valid then return newLocation else return self end
   end
 end

@@ -51,25 +51,21 @@ describe Location do
       expect(ll.facing).to eq :EAST
       expect(ll.valid).to eq true
     end
-    it 'should be invalid if moving off the table north' do
+    it 'should not move if moving off the table north' do
       l = Location.new(table, 2, 4, :NORTH)
-      ll = l.move
-      expect(ll.valid).to eq false
+      expect(l.move).to eq l
     end
-    it 'should be invalid if moving off the table west' do
+    it 'should not move if moving off the table west' do
       l = Location.new(table, 0, 2, :WEST)
-      ll = l.move
-      expect(ll.valid).to eq false
+      expect(l.move).to eq l
     end
-    it 'should be invalid if moving off the table south' do
+    it 'should not move if moving off the table south' do
       l = Location.new(table, 2, 0, :SOUTH)
-      ll = l.move
-      expect(ll.valid).to eq false
+      expect(l.move).to eq l
     end
-    it 'should be invalid if moving off the table east' do
+    it 'should not move if moving off the table east' do
       l = Location.new(table, 4, 2, :EAST)
-      ll = l.move
-      expect(ll.valid).to eq false
+      expect(l.move).to eq l
     end
   end
 end
