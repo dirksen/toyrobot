@@ -1,10 +1,9 @@
-This one's in a dockerfile because I don't have ruby installed.
+This one was meant to be in a Dockerfile, but Docker for Win Beta + Win 10 Insiders
+doesn't play nicely at the moment. So, straight ruby.
 
-Build runs the specs - not the greatest pattern, but it'll do for this.
+Everything's in the "app" dir - rspec to run the specs, ./toyrobot.rb to
+run the command line.
 
-docker build -t toyrobot:ruby .
-docker run -it -v `pwd`/app:/app
-
-Similar pattern to the powershell one - passing a new location for each
-move, which means passing a new robot back. Commands go in via the robot,
-locations are generated from the table.
+Having some fun with this - table governs validity of locations, locations
+themselves govern movement, robot is the conduit for the commands. Each command
+generates a new robot with a new location - no mutable variables. Pseudo-functional ;)
