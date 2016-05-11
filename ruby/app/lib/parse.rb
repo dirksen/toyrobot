@@ -9,6 +9,7 @@ class Parse
   
   def self.parse(input)
     cmd, args = tokenise(input)
+    return cmd, args
     return [
       %i{PLACE MOVE LEFT RIGHT REPORT}.include?(cmd) ? cmd : nil,
       args

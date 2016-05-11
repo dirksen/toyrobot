@@ -28,4 +28,11 @@ describe Robot do
       expect(location.facing).to eq :SOUTH
     end
   end
+  context '#process' do
+    let(:robot) { Robot.new(table) }
+    it 'responds with an error for an unrecognised command' do
+      expect(robot).to receive(:error)
+      robot.process("twas brillig and the slithy toves")
+    end
+  end
 end
